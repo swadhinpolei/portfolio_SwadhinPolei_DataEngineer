@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Swadhin Polei — Azure Data Engineer</title>
+<meta name="description" content="Azure Data Engineer with 3+ years of experience in Azure Data Factory, Databricks, PySpark, Delta Lake and Microsoft Fabric.">
+<style>
+:root{--bg:#f7f8fb;--card:#fff;--ink:#14182b;--mute:#5b6278;--line:#e1e4ee;--acc:#0f766e;--acc2:#b45309;--bronze:#b86b2b;--silver:#7a8394;--gold:#c28a00;--code:#10162b;--codeink:#cfe3ff;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1020;--card:#131a30;--ink:#e8ecf8;--mute:#9aa3bd;--line:#232c4a;--acc:#2dd4bf;--acc2:#fbbf24;--bronze:#e0905a;--silver:#aab4c8;--gold:#f5c542;--code:#070b17;--codeink:#cfe3ff;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b1020;--card:#131a30;--ink:#e8ecf8;--mute:#9aa3bd;--line:#232c4a;--acc:#2dd4bf;--acc2:#fbbf24;--bronze:#e0905a;--silver:#aab4c8;--gold:#f5c542;--code:#070b17;--codeink:#cfe3ff;color-scheme:dark}
+*{box-sizing:border-box}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+a{color:var(--acc)}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav{max-width:1000px;margin:auto;display:flex;align-items:center;gap:6px;padding:10px 18px;overflow-x:auto}
+nav .logo{font-weight:700;margin-right:auto;white-space:nowrap}
+nav a.l{color:var(--mute);text-decoration:none;padding:6px 12px;border-radius:999px;font-size:14px;white-space:nowrap}
+nav a.l.on{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+button{font:inherit;cursor:pointer}
+.ic{background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:5px 11px}
+main{max-width:1000px;margin:auto;padding:0 18px}
+section{padding:64px 0 8px}
+.tag{display:inline-block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;padding:3px 10px;border-radius:999px;border:1px solid currentColor}
+h1{font-size:clamp(32px,6vw,54px);line-height:1.1;margin:14px 0}
+h1 span{color:var(--acc)}
+h2{font-size:30px;margin:10px 0 6px}
+.lead{color:var(--mute);max-width:680px;font-size:18px}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0}
+.btn{padding:10px 18px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);text-decoration:none;font-weight:600}
+.btn.p{background:var(--acc);color:#04201d;border-color:var(--acc)}
+.term{background:var(--code);color:var(--codeink);border-radius:12px;padding:14px 16px;font-size:14px;margin-top:8px;min-height:3.4em}
+.cur::after{content:"▍";animation:b 1s steps(1) infinite}
+@keyframes b{50%{opacity:0}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);font-size:14px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:24px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.stat b{display:block;font-size:34px;color:var(--acc)}
+.stat small{color:var(--mute)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.steps{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.step{flex:1;min-width:90px;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--mute);font-weight:600;text-align:center}
+.step.on{color:#111;border-color:transparent}
+.step[data-i="0"].on{background:var(--bronze)}.step[data-i="1"].on{background:var(--silver)}.step[data-i="2"].on{background:var(--gold)}.step[data-i="3"].on{background:var(--acc)}
+pre{margin:0;background:var(--code);color:var(--codeink);padding:14px;border-radius:10px;overflow-x:auto;font-size:13px;line-height:1.5}
+.cap{color:var(--mute);margin:10px 0 0;font-size:15px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.tab{padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.tab.on{background:var(--acc);color:#04201d;border-color:var(--acc);font-weight:600}
+.sk{display:flex;flex-wrap:wrap;gap:8px}
+.sk span{padding:6px 13px;border-radius:8px;background:var(--card);border:1px solid var(--line);font-size:14px;animation:pop .25s ease both}
+@keyframes pop{from{opacity:0;transform:translateY(6px)}}
+.job{margin-top:14px}
+.job h3{margin:0}.job .m{color:var(--mute);font-size:14px}
+details{border-top:1px solid var(--line);padding:10px 0}
+details:first-of-type{margin-top:12px}
+summary{cursor:pointer;font-weight:600}
+details ul{margin:8px 0 0;padding-left:20px;color:var(--mute)}
+details li{margin:5px 0}
+mark{background:none;color:var(--acc2);font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:14px}
+.grid .card b{color:var(--acc)}
+.grid .card p{margin:6px 0 0;color:var(--mute);font-size:15px}
+.cta{text-align:center;padding:40px 18px}
+footer{max-width:1000px;margin:40px auto 24px;padding:0 18px;color:var(--mute);font-size:14px;text-align:center}
+#toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 20px);transform:translateX(-50%) translateY(80px);background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:10px;transition:.3s;z-index:40}
+#toast.s{transform:translateX(-50%)}
+#about{position:relative}
+#about::before{content:"";position:absolute;inset:-60px -10vw auto;height:460px;background:radial-gradient(600px 300px at 20% 30%,color-mix(in srgb,var(--acc) 22%,transparent),transparent),radial-gradient(500px 280px at 85% 10%,color-mix(in srgb,var(--gold) 20%,transparent),transparent);z-index:-1;pointer-events:none}
+.hero-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.av{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#04201d;background:linear-gradient(135deg,var(--bronze),var(--gold),var(--acc));box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--acc)}
+.open{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;padding:4px 12px;border-radius:999px;background:color-mix(in srgb,var(--acc) 15%,transparent);color:var(--acc);margin-left:6px}
+.open i{width:8px;height:8px;border-radius:50%;background:var(--acc);animation:pulse 1.6s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 var(--acc)}100%{box-shadow:0 0 0 9px transparent}}
+h1 span{background:linear-gradient(90deg,var(--acc),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat b{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{transition:transform .15s}.btn:hover{transform:translateY(-2px)}
+.btn.p{box-shadow:0 6px 20px color-mix(in srgb,var(--acc) 35%,transparent)}
+.card,.stat{transition:transform .2s,border-color .2s,opacity .6s}
+.rv{opacity:0;transform:translateY(18px)}.rv.in{opacity:1;transform:none}
+.grid .card:hover,.stat:hover{transform:translateY(-3px);border-color:var(--acc)}
+.why .card b{display:block;font-size:17px;color:var(--ink)}
+.why .ic2{font-size:26px;display:block;margin-bottom:6px}
+.fab{position:fixed;right:16px;bottom:calc(env(safe-area-inset-bottom,0px) + 18px);z-index:35}
+.fab>button{background:var(--acc);color:#04201d;border:0;border-radius:999px;padding:12px 18px;font-weight:700;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.fp{position:absolute;right:0;bottom:56px;width:210px;display:none;flex-direction:column;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px}
+.fp .btn{text-align:center;padding:9px 12px}
+.fab.o .fp{display:flex}
+.stat[data-go]{cursor:pointer}
+.go{display:block;font-size:12px;color:var(--acc);margin-top:6px;font-weight:600}
+.hl{animation:hl 2.2s ease}
+@keyframes hl{0%,60%{box-shadow:0 0 0 3px var(--acc);background:color-mix(in srgb,var(--acc) 12%,var(--card))}100%{box-shadow:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><nav>
+<span class="logo mono">swadhin<span style="color:var(--acc)">.dev</span></span>
+<a class="l on" href="#about">Bronze · About</a><a class="l" href="#skills">Silver · Skills</a><a class="l" href="#experience">Gold · Experience</a><a class="l" href="#contact">Serving · Contact</a>
+<button class="ic" id="theme" aria-label="Toggle theme">◐</button>
+</nav></header>
+<main>
+<section id="about" style="padding-top:48px">
+<div class="hero-top"><div class="av">SP</div><div><span class="tag" style="color:var(--bronze)">Azure Data Engineer</span><span class="open"><i></i>Open to new roles</span></div></div>
+<h1>Swadhin Polei builds <span>reliable lakehouse pipelines</span> that run faster and cost less.</h1>
+<p class="lead">Azure Data Engineer with 3+ years of experience designing ETL/ELT pipelines on Azure Data Factory, Databricks and Microsoft Fabric. I work with PySpark, Delta Lake and Medallion Architecture, and my optimizations cut execution time by 40% and cloud cost by 25%.</p>
+<div class="btns">
+<a class="btn p" href="mailto:swadhinpolai444@gmail.com">Email me</a>
+<a class="btn" href="https://www.linkedin.com/in/swadhinpolei/" target="_blank" rel="noopener">LinkedIn</a>
+<button class="btn" id="copy">Copy email</button>
+</div>
+<div class="term mono"><span id="typed"></span><span class="cur"></span></div>
+<div class="chips"><span class="chip">Azure Data Factory</span><span class="chip">Databricks</span><span class="chip">PySpark</span><span class="chip">Delta Lake</span><span class="chip">Microsoft Fabric</span><span class="chip">Unity Catalog</span></div>
+<div class="stats">
+<div class="stat" data-go="tcs" role="button" tabindex="0"><b data-n="3" data-s="+">0</b><small>Years of experience</small><span class="go">See where ↓</span></div>
+<div class="stat" data-go="perf" role="button" tabindex="0"><b data-n="40" data-s="%">0</b><small>Faster pipeline execution</small><span class="go">See where ↓</span></div>
+<div class="stat" data-go="perf" role="button" tabindex="0"><b data-n="25" data-s="%">0</b><small>Lower cloud cost</small><span class="go">See where ↓</span></div>
+<div class="stat" data-go="certs" role="button" tabindex="0"><b data-n="5" data-s="">0</b><small>Microsoft &amp; Databricks certifications</small><span class="go">See where ↓</span></div>
+</div>
+<div class="card">
+<h3 style="margin:0 0 4px">Live demo: follow one record through the medallion pipeline</h3>
+<div class="steps" id="steps"></div>
+<pre class="mono" id="rec"></pre>
+<p class="cap" id="cap"></p>
+<div class="btns" style="margin:12px 0 0"><button class="btn p" id="run">▶ Run pipeline</button><button class="btn" id="reset">Reset</button></div>
+</div>
+<h2 style="margin-top:48px">Why teams hire me</h2>
+<div class="grid why">
+<div class="card"><span class="ic2">⚡</span><b>Faster, cheaper pipelines</b><p>Spark tuning and partitioning cut execution time by <mark>40%</mark> and cloud cost by <mark>25%</mark>.</p></div>
+<div class="card"><span class="ic2">🏛️</span><b>Production-grade lakehouses</b><p>Medallion design, MERGE and SCD Type 2, Unity Catalog governance and Lakeflow Jobs orchestration.</p></div>
+<div class="card"><span class="ic2">🚀</span><b>Current with the modern stack</b><p>Microsoft Fabric (DP-700, DP-600), Auto Loader, Databricks Asset Bundles and Delta optimization.</p></div>
+<div class="card"><span class="ic2">🛡️</span><b>Reliable by design</b><p>Incremental loads with watermarks, data validation, monitoring, logging and error handling.</p></div>
+</div>
+</section>
+
+<section id="skills">
+<span class="tag" style="color:var(--silver)">Silver · cleaned &amp; conformed</span>
+<h2>Skills</h2>
+<p class="lead">Pick a category to see the tools I use day to day.</p>
+<div class="tabs" id="tabs"></div>
+<div class="sk" id="sk"></div>
+</section>
+
+<section id="experience">
+<span class="tag" style="color:var(--gold)">Gold · analytics ready</span>
+<h2>Experience</h2>
+<div class="card job" id="tcs">
+<h3>System Engineer – Azure Data Engineer</h3>
+<div class="m">Tata Consultancy Services (TCS) · Kolkata · Jul 2022 – Sep 2025</div>
+<details open><summary>Pipelines &amp; ingestion</summary><ul>
+<li>Designed scalable ETL/ELT pipelines on Azure Data Factory, Azure Databricks and Azure Synapse Analytics for data from relational databases, REST APIs and flat files (CSV, JSON).</li>
+<li>Built reusable, parameterized, metadata-driven ingestion frameworks in Azure Data Factory for enterprise-scale integration.</li>
+<li>Implemented incremental loading with Last Modified Date and watermark logic, which removed full reloads and cut processing time.</li></ul></details>
+<details id="perf"><summary>Performance &amp; cost</summary><ul>
+<li>Optimized Spark workloads through partitioning strategies and query tuning, reducing execution time by <mark>40%</mark> and cloud cost by <mark>25%</mark>.</li>
+<li>Used Databricks SQL, Synapse and Azure SQL Database for SQL transformations, query optimization and reporting data preparation.</li></ul></details>
+<details><summary>Lakehouse &amp; governance</summary><ul>
+<li>Developed PySpark and Spark SQL notebooks for cleansing, transformation and enrichment, delivering analytics-ready datasets with Medallion Architecture.</li>
+<li>Built Delta Lake solutions with MERGE (upsert) and SCD Type 2 logic for reliable incremental updates.</li>
+<li>Implemented centralized governance with Unity Catalog, covering metadata management and fine-grained access control.</li></ul></details>
+<details><summary>Orchestration &amp; quality</summary><ul>
+<li>Orchestrated enterprise pipelines with Lakeflow Jobs (Databricks Workflows) for scheduling, dependencies and automated runs.</li>
+<li>Added data validation, monitoring, logging and error handling to keep data quality high.</li>
+<li>Supported CI/CD with Git and Azure DevOps, resolved BI connectivity and data access queries, and worked in Agile/Scrum teams.</li></ul></details>
+</div>
+<div class="card job">
+<h3>Data Engineering Upskilling &amp; Certification</h3>
+<div class="m">Sep 2025 – Present</div>
+<details open><summary>What I’ve been building</summary><ul>
+<li>Hands-on Microsoft Fabric work with Lakehouse, OneLake, Data Pipelines and Notebooks.</li>
+<li>Advanced Databricks practice: Delta optimization (OPTIMIZE, Z-ORDER), Auto Loader incremental ingestion and Databricks Asset Bundles for CI/CD.</li>
+<li>Working knowledge of Databricks Genie Code, the AI coding assistant, for AI-assisted development of PySpark, Spark SQL and Lakeflow pipeline code, and for debugging in Databricks notebooks.</li></ul></details>
+</div>
+<h2 style="margin-top:44px" id="certs">Certifications</h2>
+<div class="grid">
+<div class="card"><b>DP-700</b><p>Microsoft Certified: Fabric Data Engineer Associate · Dec 2025</p></div>
+<div class="card"><b>DP-600</b><p>Microsoft Certified: Fabric Analytics Engineer Associate · Jul 2026</p></div>
+<div class="card"><b>Databricks Fundamentals</b><p>Databricks · Sep 2026</p></div>
+<div class="card"><b>DP-900 · AZ-900</b><p>Microsoft Azure Data Fundamentals and Azure Fundamentals</p></div>
+</div>
+<p class="cap">Education: B.Tech in Electronics and Communication Engineering, GIET University, Gunupur, Odisha (2018 – 2022), GPA 8.1.</p>
+</section>
+
+<section id="contact">
+<div class="card cta">
+<span class="tag" style="color:var(--acc)">Serving layer</span>
+<h2>Let’s talk about your data platform.</h2>
+<p class="lead" style="margin:0 auto">I’m open to Azure and Databricks data engineering roles. The quickest way to reach me is email or LinkedIn.</p>
+<div class="btns" style="justify-content:center">
+<a class="btn p" href="mailto:swadhinpolai444@gmail.com">swadhinpolai444@gmail.com</a>
+<a class="btn" href="tel:+918018036518">+91 80180 36518</a>
+<a class="btn" href="https://www.linkedin.com/in/swadhinpolei/" target="_blank" rel="noopener">LinkedIn</a>
+<button class="btn" id="copy2">Copy email</button>
+</div>
+</div>
+</section>
+</main>
+<footer>Bronze → Silver → Gold, one pipeline at a time. · Bhubaneswar, India</footer>
+<div class="fab" id="fab"><div class="fp"><a class="btn p" href="mailto:swadhinpolai444@gmail.com">✉ Email Swadhin</a><a class="btn" href="https://www.linkedin.com/in/swadhinpolei/" target="_blank" rel="noopener">LinkedIn</a><a class="btn" href="tel:+918018036518">Call</a><button class="btn" id="copy3">Copy email</button></div><button id="fabb">👋 Let’s connect</button></div>
+<div id="toast">Email copied</div>
+<script>
+var $=function(s){return document.querySelector(s)};
+var EMAIL='swadhinpolai444@gmail.com';
+function toast(t){var e=$('#toast');e.textContent=t;e.classList.add('s');setTimeout(function(){e.classList.remove('s')},1800)}
+function copy(){var d=function(){toast('Email copied')};try{navigator.clipboard.writeText(EMAIL).then(d,function(){toast(EMAIL)})}catch(e){toast(EMAIL)}}
+$('#copy').onclick=copy;$('#copy2').onclick=copy;
+/* theme */
+(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}})();
+$('#theme').onclick=function(){var r=document.documentElement,dark=r.getAttribute('data-theme')?r.getAttribute('data-theme')==='dark':matchMedia('(prefers-color-scheme:dark)').matches;var n=dark?'light':'dark';r.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}};
+/* typing */
+var lines=['swadhin@lakehouse:~$ run --layer bronze --source adls_gen2','swadhin@lakehouse:~$ optimize delta --zorder customer_id','swadhin@lakehouse:~$ deploy bundle --target prod'],li=0,ci=0,del=false;
+function type(){var s=lines[li];ci+=del?-1:1;$('#typed').textContent=s.slice(0,ci);var w=del?18:42;if(!del&&ci===s.length){del=true;w=1600}else if(del&&ci===0){del=false;li=(li+1)%lines.length;w=400}setTimeout(type,w)}
+type();
+/* counters */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;io.unobserve(e.target);var t=+e.target.dataset.n,s=e.target.dataset.s,i=0;var id=setInterval(function(){i++;e.target.textContent=Math.round(t*i/30)+s;if(i>=30)clearInterval(id)},30)})},{threshold:.5});
+document.querySelectorAll('[data-n]').forEach(function(n){io.observe(n)});
+/* pipeline demo */
+var ST=[
+{n:'Bronze',c:'Auto Loader lands the raw record exactly as it arrives, with only an ingest timestamp added.',r:{order_id:'A-1001',customer:' john DOE ',amount:'1,250.50',order_date:'2025-3-7',_source:'rest_api',_ingest_ts:'2025-03-07T09:12:44Z'}},
+{n:'Silver',c:'Cleansed and typed, validated, then upserted with MERGE so reruns never create duplicates.',r:{order_id:'A-1001',customer:'John Doe',amount:1250.5,order_date:'2025-03-07',_dq_status:'passed',_updated_at:'2025-03-07T09:14:02Z'}},
+{n:'Gold',c:'Modeled into a star schema fact with surrogate keys (SCD Type 2 on the customer dimension).',r:{fact:'fact_sales',customer_key:4217,date_key:20250307,revenue:1250.5,is_current_customer:true}},
+{n:'Serve',c:'Governed through Unity Catalog and ready for Databricks SQL or BI dashboards.',r:{dataset:'gold.sales_by_customer',customer:'John Doe',month:'2025-03',revenue:1250.5,access:'Unity Catalog grants'}}
+],cur=0,tm=null;
+var sb=$('#steps');
+ST.forEach(function(s,i){var b=document.createElement('button');b.className='step';b.dataset.i=i;b.textContent=s.n;b.onclick=function(){stop();show(i)};sb.appendChild(b)});
+function show(i){cur=i;document.querySelectorAll('.step').forEach(function(b,j){b.classList.toggle('on',j<=i&&j===i)});$('#rec').textContent=JSON.stringify(ST[i].r,null,2);$('#cap').textContent=ST[i].n+': '+ST[i].c}
+function stop(){clearInterval(tm);tm=null;$('#run').textContent='▶ Run pipeline'}
+$('#run').onclick=function(){if(tm){stop();return}$('#run').textContent='⏸ Pause';if(cur>=3)show(0);tm=setInterval(function(){if(cur>=3){stop();return}show(cur+1)},1500)};
+$('#reset').onclick=function(){stop();show(0)};
+show(0);
+/* skills */
+var SK={'All':null,'Languages':['Python','PySpark','SQL','Spark SQL'],'Azure & Fabric':['Azure Data Factory','Azure Databricks','Azure Synapse Analytics','Microsoft Fabric','ADLS Gen2','Azure SQL Database'],'Databricks':['Delta Lake','Unity Catalog','Auto Loader','Lakeflow Jobs','Lakeflow Spark Declarative Pipelines','Databricks Asset Bundles','Change Data Feed','OPTIMIZE · Z-ORDER · VACUUM','Databricks SQL'],'Data Engineering':['ETL/ELT','Medallion Architecture','Incremental Loading','Watermarking','MERGE (Upsert)','Data Validation','Performance Tuning'],'Modeling':['Dimensional Modeling','Star Schema','Snowflake Schema','Fact &amp; Dimension Modeling','SCD Type 2'],'DevOps & Quality':['Git','Azure DevOps','CI/CD','JIRA','ServiceNow','Data Quality','Data Governance','Monitoring &amp; Logging']};
+var tabs=$('#tabs'),sk=$('#sk');
+function paint(k){document.querySelectorAll('.tab').forEach(function(t){t.classList.toggle('on',t.dataset.k===k)});var list=SK[k]||[].concat.apply([],Object.keys(SK).filter(function(x){return SK[x]}).map(function(x){return SK[x]}));sk.innerHTML=list.map(function(s,i){return '<span style="animation-delay:'+(i*15)+'ms">'+s+'</span>'}).join('')}
+Object.keys(SK).forEach(function(k){var b=document.createElement('button');b.className='tab';b.dataset.k=k;b.textContent=k;b.onclick=function(){paint(k)};tabs.appendChild(b)});
+paint('All');
+/* reveal + connect button */
+var rv=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');rv.unobserve(e.target)}})},{threshold:.08});
+document.querySelectorAll('.card,.stat').forEach(function(n){n.classList.add('rv');rv.observe(n)});
+var fab=$('#fab');$('#fabb').onclick=function(){fab.classList.toggle('o')};
+document.addEventListener('click',function(e){if(!fab.contains(e.target))fab.classList.remove('o')});
+$('#copy3').onclick=function(){copy();fab.classList.remove('o')};
+document.querySelectorAll('.stat[data-go]').forEach(function(s){function go(){var t=document.getElementById(s.dataset.go);if(!t)return;if(t.tagName==='DETAILS')t.open=true;t.scrollIntoView({behavior:'smooth',block:'start'});var h=s.dataset.go==='certs'?t.nextElementSibling:t;h.classList.remove('hl');void h.offsetWidth;h.classList.add('hl');setTimeout(function(){h.classList.remove('hl')},2300)}s.onclick=go;s.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}}});
+/* scrollspy */
+var secs=['about','skills','experience','contact'].map(function(i){return document.getElementById(i)});
+var spy=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){document.querySelectorAll('nav a.l').forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-40% 0px -55% 0px'});
+secs.forEach(function(s){spy.observe(s)});
+</script>
+</body>
+</html>
